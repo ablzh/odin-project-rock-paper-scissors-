@@ -30,17 +30,25 @@ function userMove() {
 }
 
 // create a function for the computer's turn
-// create a temporary variable for a random number between 0 and 1
-// use conditional cases to decide the computer's choice
-// if random number < 1/3 → rock
-// if random number < 2/3 → paper
-// otherwise → scissors
-// return the computer's choice
+function computerMove() {
+  // create a temporary variable for a random number between 0 and 1
+  let randomNumber = Math.random();
+  let computerFigure = "";
+  // use conditional to decide the computer's choice
+  // if random number < 1/3 → rock
+  if (randomNumber < 1 / 3) computerFigure = "rock";
+  // if random number < 2/3 → paper
+  else if (randomNumber < 2 / 3) computerFigure = "paper";
+  // otherwise → scissors
+  else computerFigure = "scissors";
+  // return the computer's choice
+  return computerFigure;
+}
 
 // create a function getWinner
 // compare the return values from the user turn and the computer turn functions
 // (the results will be passed as arguments)
-// return the winner: "user", "computer", or "draw"
+// return the winner: "user", "computer", or "draw"}
 
 // Game loop
 
