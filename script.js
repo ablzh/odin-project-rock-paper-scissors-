@@ -51,20 +51,45 @@ function getWinner(userFigure, computerFigure) {
 }
 
 // Game loop
-
 // execute the loop while the current round <= max rounds
-// create a temporary variable for storing the round winner
-// call getWinner() and pass the results of getUserTurn() and getComputerTurn() as arguments
-// store the round winner for later use
 
-// use conditional statements to add points to the winner's score
-// print a message showing who won the current round
-// print a message showing both scores (user and computer)
-// print the current round number
+while (currentRound <= MAX_ROUND) {
+  // create a temporary variable for storing the round winner
+  // call getWinner() and pass the results of getUserTurn() and getComputerTurn() as arguments
+  // store the round winner for later use
+  let roundWinner = getWinner(userMove(), computerMove());
 
-// increase the round count by 1
+  let whoWonMessage =
+    roundWinner === "draw"
+      ? "There are no winners - it's a draw!"
+      : `The winner of the current round is ${roundWinner}`;
 
+  // use conditional statements to add points to the winner's score
+  switch (roundWinner) {
+    case "user":
+      userScore += 1;
+      break;
+    case "computer":
+      computerScore += 1;
+      break;
+  }
+  // print the current round number
+  console.log(`Round: ${currentRound}`);
+  // print a message showing who won the current round
+  console.log(whoWonMessage);
+  // print a message showing both scores (user and computer)
+  console.log(`User: ${userScore}, Computer: ${computerScore}`);
+  console.log();
+
+  // increase the round count by 1
+  currentRound += 1;
+}
 // After the loop
-
+console.log("The end! Game over.");
 // compare the total scores and print a message showing who won the game
 // if both scores are equal → print "Draw"
+if (userScore === computerScore) console.log("Draw!");
+else if (userScore > computerScore) console.log("User won!");
+else {
+  console.log("Computer won!");
+}
